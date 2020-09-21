@@ -7,4 +7,8 @@ const config = {
     }
 }
 
-export default axios.create(baseURL=baseURL, config=config)
+const axiosConfig = axios.create({
+    baseURL, config
+})
+
+export default axiosConfig

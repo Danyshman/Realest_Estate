@@ -1,12 +1,11 @@
-import axios from 'axios';
 import { setAlert } from './alert';
-import { SIGNUP_SUCCESS, LOGIN_FAIL, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT, SET_ALERT } from './actionTypes';
+import { SIGNUP_SUCCESS, SIGNUP_FAIL, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT, SET_ALERT } from './actionTypes';
 import axios from '../common/axiosConfig';
 
 export const login = (email, password) => async (dispatch) => {
     const body = JSON.stringify({ email, password });
     try {
-        const res = await axios.post('/api/token/', (body = body));
+        const res = await axios.post('/api/token/', (body));
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data,
@@ -29,7 +28,7 @@ export const login = (email, password) => async (dispatch) => {
 export const signup = ({ name, email, password, password2 }) => async (dispatch) => {
     const body = JSON.stringify({ name, email, password, password2 });
     try {
-        const res = await axios.post('/api/accounts/signup', (body = body));
+        const res = await axios.post('/api/accounts/signup', (body));
         dispatch({
             type: SIGNUP_SUCCESS,
             payload: res.data,
