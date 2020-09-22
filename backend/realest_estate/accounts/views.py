@@ -19,7 +19,7 @@ class SignupView(APIView):
 
         if password == password2:
             if User.objects.filter(email=email).exists():
-                return Response({"error": 'Email already exists'})
+                return Response({"error": 'Email already exists'}, status=status.HTTP_400_BAD_REQUEST)
             else:
                 if len(password) < 6:
                     return Response({'error': 'Password must be at least 6 characters'})
